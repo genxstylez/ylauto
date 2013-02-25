@@ -1,0 +1,4 @@
+django
+django-grappelli
+pil
+easy_thumbnails
