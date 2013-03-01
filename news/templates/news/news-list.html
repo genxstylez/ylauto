@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <div id="news_wrapper">
+        <h1>{% trans 'NEWS' %}</h1>
+        <div class="latest-posts">
+            {% for n in news %}
+            <div class="sc-page">
+                <div class="image">
+                    <a href="{% url news n.id %}">
+                        <img src="{{ n.image.url }}">
+                    </a>
+                </div>
+                <div class="text">
+                    <h3><a href="{% url news n.id %}">{{ n.title }}</a></h3>
+                    <p>{{ n.content|safe }}</p>
+                </div><!-- /.text -->
+                <div class="rule"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

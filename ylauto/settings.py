@@ -35,7 +35,16 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+gettext = lambda s: s
+LANGUAGES = (
+    ('zh-tw', gettext('Trad Chinese')),
+    ('en', gettext('English')),
+    ('zh-cn', gettext('Simp Chinese')),
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'zh-tw'
+
+LANGUAGE_CODE = 'zh-tw'
 
 SITE_ID = 1
 
@@ -101,6 +110,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -127,11 +137,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'grappelli',
+    'grappelli_modeltranslation',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'product',
     'news',
+    'ylauto',
     'easy_thumbnails',
+    'modeltranslation',
+    'general',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -161,4 +175,11 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+THUMBNAIL_ALIASES = {
+    'news': {
+        'small': {'size': (150, 0), 'crop': 'scale'},
+        'large': {'size': (900, 0), 'crop': 'scale'},
+    },
 }

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles i18n common %}
+{% block content %}
+    <div id="sections">
+         <div id="image_area">
+            <div id="fader3" class="crossfader">
+                <img src="{% static "images/photo_1.jpg" %}" class="">
+                <img src="{% static "images/photo_2.jpg" %}" style="opacity: 1;" class="active">
+                <img src="{% static "images/photo_3.jpg" %}">
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <!-- SIDEBAR -->
+        <div class="sidebar left clearfix">
+            <div id="submenu-widget-3" class="box widget-container widget_submenu">
+                <div class="box-wrapper">
+                    <h2 class="widget-title">{% trans 'NEWS' %}</h2>
+                    <ul>
+                    {% for n in news %}
+                        <li><a href="{% url news n.id %}">{{ n.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end of SIDEBAR -->
+        <!-- MAINBAR -->
+        <div id="content" class="mainbar right entry-content clearfix">
+            <h1>{% trans 'PRODUCTS' %}</h1>
+            {% for category in categories %}
+            <a href="{% url categories %}#p{{ category.id }}">
+                <div class="sc-column one-fourth">
+                    <div class="frame dark">
+                        <div class="frame-wrap">
+                            <div class="frame-inner">
+                                <h5><i class="s_{% get_category_icon request category.id %}"></i>{{ category.name }}</h5>
+                                <p>{{ category.description|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <!-- end of mainbar -->
+        <br clear="all">
+    </div>
+{% endblock %}

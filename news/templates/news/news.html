@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div id="news_wrapper">
+    <div class="pathway">
+        <a href="{% url news-list %}">{% trans 'News' %}</a> / <a href="{% url news news.id %}">{{ news.title }}</a>
+    </div>
+    <div id="content">
+        <h1>{{ news.title }}</h1>
+        <img src="{{ news.image.url }}" alt="">
+        <p>{{ news.content }}</p>
+        <div class="clearing"></div>
+    </div>
+</div>
+{% endblock %}

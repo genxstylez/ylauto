@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div id="about_wrapper">
+    <div id="content">
+        <img src="{{ about.image.url }}" alt="">
+        <h1>{% trans 'ABOUT' %}</h1>
+        <p>{{ about.content|safe }}</p>
+        <div class="clearing"></div>
+    </div>
+</div>
+{% endblock %}

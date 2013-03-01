@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n common %}
+{% block content %}
+<div id="products_wrapper">
+    {% for category in categories %}
+    <a name="p{{ category.id }}" id="p{{ category.id }}"></a>
+    <h1><i class="l_{% get_category_icon request category.id %}"></i>{{ category.name }}</h1>
+        {% for make in category.makes.all %}
+        <h2>{{ make.name }}</h2>
+            {% for series in make.series.all %}
+            <h4>{{ series.name }}</h4>
+                <ul>
+                {% for model in series.models.all %}
+                    <li><a href="{% url model model.id %}"><img src="{{ model.thumb_off.url }}" />{{ model.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        {% endfor %}
+    <div class="rule"><span class="top">top</span></div>
+    {% endfor %}
+</div>
+{% endblock %}

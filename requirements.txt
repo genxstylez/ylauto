@@ -1,4 +1,5 @@
 django
 django-grappelli
-pil
+pillow
 easy_thumbnails
+django-modeltranslation

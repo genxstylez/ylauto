@@ -1,0 +1,36 @@
+/*Sliding Text and Icon Menu Style*/
+.sti-menu{
+	width: auto;
+	position:relative;
+	margin: 0 auto 1px auto;
+	list-style: none;
+	/*display: none; */
+}
+.sti-menu li{
+	float:left;
+	width:320px;
+	height:120px;
+}
+
+.sti-menu li a{
+	display:block;
+	overflow:hidden;
+	text-align:center;
+	height:100%;
+	width:100%;
+	position:relative;
+}
+
+.sti-menu li:last-child  { border-right-width: 0px;
+}
+.sti-icon{
+	width:300px;
+	height:100px;
+	position:absolute;
+	background-position:center top;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	left:0;
+	top:10px;
+	padding: 0 10px
+}
