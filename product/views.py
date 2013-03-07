@@ -7,5 +7,5 @@ def categories(request):
 
 
 def model(request, model_id):
-    series = get_object_or_404(Model, id=model_id)
+    model = get_object_or_404(Model, id=model_id)
     return render(request, 'product/model.html', {'model': model})

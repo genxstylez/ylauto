@@ -16,15 +16,22 @@ $j(document).ready(function() {
 	
 	widgetsSize();
 	
-	InitMisc();
+        //InitMisc();
 	
-	HoverZoomInit();
+	//HoverZoomInit();
 	
 	OpenCloseShortcode();
 	
-	PrettySociableInit();
+	//PrettySociableInit();
 	
 	notificationClose();
+
+        $j('.model-thumb').hover(function() {
+            var on_src = $j('img', this).attr('alt_src');
+            var off_src = $j('img', this).attr('src');
+            $j('img', this).attr('src', on_src);
+            $j('img', this).attr('alt_src', off_src);
+        });
 });
 
 function iconMenu() {
@@ -373,7 +380,3 @@ function notificationClose() {
 		$j(this).parent().fadeOut('slow');
 	});
 }
-
-
-
-

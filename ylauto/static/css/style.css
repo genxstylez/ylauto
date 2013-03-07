@@ -137,6 +137,21 @@ span.crumbs span.current{font-weight:normal;}
 .mainmenu li li a{display:block;padding:3px 7px 3px 7px;background:none;color:#fff;text-decoration:none;}
 .mainmenu li ul > li:hover > a{background:rgba(255,255,255,.5);color:#000000;text-decoration:none;}
 .mainmenu ul ul ul{position:absolute;top:-13px;left:204px;}
+.mainmenu #language-menu {
+	position:absolute;
+	top:0;
+	right:20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height:40px;
+}
+.mainmenu #language-menu a {
+	color:#ddd;
+	margin:0 5px;
+}
+.mainmenu #language-menu a:hover {
+	color:#fff;
+}
 #sections{box-shadow:0 3px 5px 3px rgba(0,0,0,0.1);-moz-box-shadow:0 3px 5px 3px rgba(0,0,0,0.1);-webkit-box-shadow:0 3px 5px 3px rgba(0,0,0,0.1);}
 .mainpage #main { padding:0 20px;}
 #slider{width:960px;}
@@ -602,7 +617,8 @@ div.wpcf7{background:#fafafa;padding:20px 14px !important;-moz-border-radius:7px
 	background: -moz-linear-gradient(top,#694a23 0%,#805e31);
 	background: -webkit-gradient(linear, left top, left bottom, from(#694a23),to(#805e31));
 }
-.sc-page{margin-bottom:20px;border-bottom:#222 1px solid;}
+.latest-posts {float: left; width: 100%; }
+.sc-page{margin-bottom:20px;border-bottom:#222 1px solid; float:left; width: 100%;}
 .sc-page h3{font-size:18px !important;font-weight:normal;margin:0px 0px 10px 0px;padding-top:0px;}
 .sc-page h3 a,.sc-page h3 a:hover{text-decoration:none;}
 .sc-page img{display:block;height:125px;width:125px;}
@@ -717,17 +733,10 @@ div.wpcf7{background:#fafafa;padding:20px 14px !important;-moz-border-radius:7px
 	text-align:center;
 	display:inline-block;
 }
-#products_wrapper li .car_box {
-	display:inline-block;
-	background-image:url("../images/car.png");
-	background-repeat:no-repeat;
+#products_wrapper li img {
 	width:80px;
 	height:56px;
-	background-position:0px 0px;
 	margin-bottom:5px;	
-}
-#products_wrapper li:hover .car_box {
-	background-position:0px -56px;	
 }
 #image_area {
 	width: 960px;
@@ -880,3 +889,10 @@ input {
 .l_icon-jp {background-position:0px 0px;margin-right:5px; margin-top:2px;}
 .l_icon-eu {background-position:-70px 0px;margin-right:5px; margin-top:2px;}
 .l_icon-am {background-position:-35px 0px;margin-right:5px; margin-top:2px;}
+.box-wrapper a.more-link {
+ float:right;
+ color: #826948;
+}
+.box-wrapper a.more-link:before {
+ border:none;
+}

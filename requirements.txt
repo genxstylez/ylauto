@@ -3,3 +3,4 @@ django-grappelli
 pillow
 easy_thumbnails
 django-modeltranslation
+grappelli-modeltranslation
