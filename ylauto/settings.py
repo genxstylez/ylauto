@@ -110,15 +110,18 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'ylauto.urls'
 
@@ -151,6 +154,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'modeltranslation',
     'general',
+    'gunicorn',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -188,3 +192,18 @@ THUMBNAIL_ALIASES = {
         'large': {'size': (900, 0), 'crop': 'scale'},
     },
 }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211'
+    }
+}
+
+CACHE_MIDDLEWARE_KEY_PREFIX = 'ylauto'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
