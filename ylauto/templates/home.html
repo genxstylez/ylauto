@@ -2,11 +2,11 @@
 {% load staticfiles i18n common %}
 {% block content %}
     <div id="sections">
-         <div id="image_area">
+        <div id="image_area">
             <div id="fader3" class="crossfader">
-                <img src="{% static "images/photo_1.jpg" %}" class="">
-                <img src="{% static "images/photo_2.jpg" %}" style="opacity: 1;" class="active">
-                <img src="{% static "images/photo_3.jpg" %}">
+                {% for slide in imageslides %}
+                    <img src="{{ slide.image.url }}" class="">
+                 {% endfor %}
             </div>
         </div>
     </div>

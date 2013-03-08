@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-07 14:30+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:15
+msgid "title"
+msgstr "標題"
+
+#: models.py:16
+msgid "content"
+msgstr "內容"
+
+#: models.py:17
+msgid "image"
+msgstr "圖片"
+
+#: models.py:18
+msgid "created at"
+msgstr ""
+
+#: models.py:19
+msgid "last modified"
+msgstr ""
+
+#: templates/news/news-list.html:5
+msgid "NEWS"
+msgstr "最新消息"
+
+#: templates/news/news.html:6
+msgid "News"
+msgstr "最新消息"
