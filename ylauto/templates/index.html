@@ -30,9 +30,9 @@
         <div id="sections">
             <div id="image_area">
                 <div id="fader3" class="crossfader">
-                    <img src="images/photo_1.jpg">
-                    <img src="images/photo_2.jpg" class="">
-                    <img src="images/photo_3.jpg" style="opacity: 1;" class="active">
+                    {% for slide in slides %}
+                    <img src="{{ slide.image.url }}" />
+                    {% endfor %}
                 </div>
             </div>
         </div>

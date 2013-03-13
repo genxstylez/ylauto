@@ -18,7 +18,7 @@ class ModelTranslationOptions(TranslationOptions):
 
 
 class ProductTranslationOptions(TranslationOptions):
-    fields = ('name', 'material', 'specs', )
+    fields = ('name', 'material', 'specs', 'year', )
 
 
 class ProductImageTranslationOptions(TranslationOptions):

@@ -1,10 +1,11 @@
+# coding: utf-8
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from easy_thumbnails.fields import ThumbnailerImageField
 
 class News(models.Model):
     def news_image_path(self, filename):
-        return 'news/%s/image.%s' % (self.title, filename.split('.')[1])
+        return 'news/%s/image.%s' % (self.id, filename.split('.')[1])
 
     class Meta:
         verbose_name_plural = 'News'

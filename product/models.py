@@ -32,9 +32,9 @@ class Series(models.Model):
 
 class Model(models.Model):
     def off_upload_path(self, filename):
-        return 'products/%s/thumb-off.%s' % (self.name, filename.split('.')[1])
+        return 'products/%s/thumb-off.%s' % (self.id, filename.split('.')[1])
     def on_upload_path(self, filename):
-        return 'products/%s/thumb-on.%s' % (self.name, filename.split('.')[1])
+        return 'products/%s/thumb-on.%s' % (self.id, filename.split('.')[1])
     name = models.CharField(_('name'), max_length=100)
     series = models.ForeignKey(Series, verbose_name=_('series'), related_name='models')
     thumb_off = ThumbnailerImageField(_('thumb off'), upload_to=off_upload_path, resize_source=dict(size=(80, 56), sharpen=True))
@@ -47,6 +47,7 @@ class Model(models.Model):
 
 class Product(models.Model):
     name = models.CharField(_('name'), max_length=100)
+    year = models.CharField(_('year'), max_length=20)
     model = models.ForeignKey(Model, verbose_name=_('model'), related_name='products')
     material = models.CharField(_('material'), max_length=50)
     specs = models.CharField(_('specs'), max_length=100)
@@ -57,7 +58,7 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     def upload_path(self, filename):
-        return 'products/%s/%s' % (self.model.name, filename)
+        return 'products/%s/%s' % (self.model.id, filename)
 
     name = models.CharField(_('name'), max_length=100)
     model = models.ForeignKey(Model, verbose_name=_('model'), related_name='images')

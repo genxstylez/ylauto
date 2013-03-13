@@ -4,8 +4,8 @@
     <div id="sections">
         <div id="image_area">
             <div id="fader3" class="crossfader">
-                {% for slide in imageslides %}
-                    <img src="{{ slide.image.url }}" class="">
+                {% for slide in slides %}
+                    <img src="{{ slide.image.url }}" />
                  {% endfor %}
             </div>
         </div>

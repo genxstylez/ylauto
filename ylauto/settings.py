@@ -7,7 +7,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Sam Liu', 'genxstylez@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -25,7 +25,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['106.186.18.78',]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -200,6 +200,12 @@ CACHES = {
 }
 
 CACHE_MIDDLEWARE_KEY_PREFIX = 'ylauto'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'webmaster@empor.com.tw'
+EMAIL_HOST_PASSWORD = '53780722'
+EMAIL_PORT = 587
 
 try:
     from local_settings import *
