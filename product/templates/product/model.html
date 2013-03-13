@@ -11,6 +11,7 @@
         <table class="style1">
             <thead>
                 <tr>
+                    <th>{% trans 'Year' %}</th>
                     <th>{% trans 'Type' %}</th>
                     <th>{% trans 'Material' %}</th>
                     <th>{% trans 'Specs' %}</th>
@@ -19,6 +20,7 @@
             <tbody>
                 {% for product in model.products.all %}
                 <tr>
+                    <th>{{ product.year }}</th>
                     <th>{{ product.name }}</th>
                     <td>{{ product.material }}</td>
                     <td>{{ product.specs }}</td>

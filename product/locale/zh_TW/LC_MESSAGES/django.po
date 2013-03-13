@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-08 10:08+0800\n"
+"POT-Creation-Date: 2013-03-13 10:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,50 +18,72 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: models.py:6 models.py:14 models.py:22 models.py:38 models.py:49
-#: models.py:62
-msgid "Name"
+#: models.py:63
+msgid "name"
 msgstr "名稱"
 
 #: models.py:7 models.py:42
-msgid "Description"
+msgid "description"
 msgstr "描述"
 
 #: models.py:15
-msgid "Category"
+msgid "category"
 msgstr "類別(歐系, 日系, 美國...)"
 
 #: models.py:23
-msgid "Make"
+msgid "make"
 msgstr "廠牌"
 
 #: models.py:39
-msgid "Series"
+msgid "series"
 msgstr "系列"
 
 #: models.py:40
-msgid "Thumb off"
+msgid "thumb off"
 msgstr "縮圖(關燈)"
 
 #: models.py:41
-msgid "Thumb on"
+msgid "thumb on"
 msgstr "縮圖(開燈)"
 
-#: models.py:50 models.py:63
-msgid "Model"
+#: models.py:50
+msgid "year"
+msgstr "年份"
+
+#: models.py:51 models.py:64
+msgid "model"
 msgstr "型號"
 
-#: models.py:51 templates/product/model.html:15
-msgid "Material"
+#: models.py:52
+msgid "material"
 msgstr "材質"
 
-#: models.py:52 templates/product/model.html:16
-msgid "Specs"
+#: models.py:53
+msgid "specs"
 msgstr "規格"
 
-#: models.py:64
-msgid "Image"
+#: models.py:65
+msgid "image"
 msgstr "圖片"
 
 #: templates/product/model.html:14
+msgid "Year"
+msgstr "年份"
+
+#: templates/product/model.html:15
 msgid "Type"
 msgstr "類別"
+
+#: templates/product/model.html:16
+msgid "Material"
+msgstr "材質"
+
+#: templates/product/model.html:17
+msgid "Specs"
+msgstr "規格"
+
+#~ msgid "Name"
+#~ msgstr "名稱"
+
+#~ msgid "Make"
+#~ msgstr "廠牌"
