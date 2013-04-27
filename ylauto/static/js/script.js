@@ -16,7 +16,7 @@ $j(document).ready(function() {
 	
 	widgetsSize();
 	
-        //InitMisc();
+    InitMisc();
 	
 	//HoverZoomInit();
 	
@@ -25,6 +25,8 @@ $j(document).ready(function() {
 	//PrettySociableInit();
 	
 	notificationClose();
+
+    $j('img.lazy').lazyload({ effect: 'fadeIn' });
 
         $j('.model-thumb').hover(function() {
             var on_src = $j('img', this).attr('alt_src');
@@ -289,7 +291,7 @@ function InitMisc() {
 	catch(e){}
   });
 
-  $j('#content label').inFieldLabels();
+  //$j('#content label').inFieldLabels();
 
   $j('.rule span').click(function() {
 	  $j.scrollTo(0, 1000, {axis:'y'});

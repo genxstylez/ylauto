@@ -34,8 +34,8 @@ msgid "HOME"
 msgstr "首頁"
 
 #: templates/base.html:28
-msgid "ABOUT"
-msgstr "关于"
+msgid "ABOUT US"
+msgstr "关于我们"
 
 #: templates/base.html:29 templates/home.html:18
 msgid "NEWS"
@@ -43,8 +43,8 @@ msgstr "最新消息"
 
 #: templates/base.html:30 templates/home.html:30
 msgid "PRODUCTS"
-msgstr "产品"
+msgstr "产品资料"
 
 #: templates/base.html:38
-msgid "CONTACT"
+msgid "CONTACT US"
 msgstr "联系我们"

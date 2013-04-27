@@ -4,18 +4,30 @@
 <div id="products_wrapper">
     {% for category in categories %}
     <a name="p{{ category.id }}" id="p{{ category.id }}"></a>
-    <h1><i class="l_{% get_category_icon request category.id %}"></i>{{ category.name }}</h1>
+    <h1><i class="l_{% get_category_icon request category.id %}"></i><span style="vertical-align:5px;">{{ category.name }}</span></h1>
+        {% if category.makes.count > 1 %}
+            <ul class="nav nav-tabs">
+            {% for make in category.makes.all %}
+                <li {% if forloop.counter == 1 %}class="active"{% endif %}>
+                    <a href="#tab{{ make.id }}" data-toggle="tab">{{ make.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="tab-content">
         {% for make in category.makes.all %}
-        <h2>{{ make.name }}</h2>
+            <div class="tab-pane fade {% if forloop.counter == 1 %}in active{% endif %}" id="tab{{ make.id }}">
             {% for series in make.series.all %}
-            <h4>{{ series.name }}</h4>
+                <h4>{{ series.name }}</h4>
                 <ul>
                 {% for model in series.models.all %}
                     <li class="model-thumb"><a href="{% url model model.id %}"><img src="{{ model.thumb_off.url }}" alt_src="{{ model.thumb_on.url }}"/>{{ model.name }}</a></li>
                 {% endfor %}
-            </ul>
+                </ul>
             {% endfor %}
+            </div>
         {% endfor %}
+        </div>
     <div class="rule"><span class="top">top</span></div>
     {% endfor %}
 </div>

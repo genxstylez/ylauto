@@ -34,7 +34,9 @@
                     <div class="frame dark">
                         <div class="frame-wrap">
                             <div class="frame-inner">
-                                <h5><i class="s_{% get_category_icon request category.id %}"></i>{{ category.name }}</h5>
+                                <h5 style="vertical-align:top;">
+                                    <i class="s_{% get_category_icon request category.id %}"></i>{{ category.name }}
+                                </h5>
                                 <p>{{ category.description|safe }}</p>
                             </div>
                         </div>

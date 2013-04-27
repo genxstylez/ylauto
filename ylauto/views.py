@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'index.html', {'slides': slides})
 
 def home(request):
-    news = News.objects.all()
+    news = News.objects.order_by('-created_at')[:4]
     categories = Category.objects.all()
     slides = ImageSlide.objects.filter(active=True)
     return render(request, 'home.html', {'news': news, 'categories': categories, 'slides': slides})

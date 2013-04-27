@@ -11,6 +11,8 @@ def get_category_icon(request, cat_id):
         return 'icon-am'
     if cat_id == 3:
         return 'icon-jp'
+    if cat_id == 6:
+        return 'icon-else'
 
 @register.assignment_tag
 def get_categories():

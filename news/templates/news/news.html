@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n staticfiles %}
 {% block content %}
 <div id="news_wrapper">
     <div class="pathway">
@@ -7,7 +7,7 @@
     </div>
     <div id="content">
         <h1>{{ news.title }}</h1>
-        <img src="{{ news.image.url }}" alt="">
+        <img class="lazy" data-original="{{ news.image.url }}" src="{% static 'images/900x347.png' %}" alt="{{ news.title }}">
         <p>{{ news.content|safe }}</p>
         <div class="clearing"></div>
     </div>

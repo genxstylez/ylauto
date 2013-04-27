@@ -1,38 +1,41 @@
 {% extends 'base.html' %}
-{% load i18n thumbnail %}
+{% load i18n thumbnail staticfiles %}
 {% block content %}
 <div id="products_detail_wrapper">
     <div class="pathway">
-        <a href="{% url index %}">Home</a> / <a href="{% url categories %}">Products</a> / <a href="{% url categories %}#p{{ model.series.make.category.id }}">{{ model.series.make.name }} {{ model.name }}</a>
+        <a href="{% url index %}">{% trans 'Home' %}</a> / <a href="{% url categories %}">{% trans 'Products' %}</a> / <a href="{% url categories %}#p{{ model.series.make.category.id }}">{{ model.series.make.name }} {{ model.name }}</a>
     </div>
     <div class="sidebar left">
-        <h3>{{ model.name }}</h3>
+        <h3>{{ model.name }} <span style="color:#999; font-size: 12px; font-weight: normal;">({{ model.extra }})</span></h3> 
         <p>{{ model.description|safe }}</p>
-        <table class="style1">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>{% trans 'Year' %}</th>
                     <th>{% trans 'Type' %}</th>
-                    <th>{% trans 'Material' %}</th>
-                    <th>{% trans 'Specs' %}</th>
+                    <th>{% trans 'Specification' %}</th>
                 </tr>
             </thead>
             <tbody>
-                {% for product in model.products.all %}
-                <tr>
-                    <th>{{ product.year }}</th>
-                    <th>{{ product.name }}</th>
-                    <td>{{ product.material }}</td>
-                    <td>{{ product.specs }}</td>
-                </tr>
+                {% for key, value in products.items %}
+                    {% for product in value %}
+                    <tr>
+                        {% if forloop.counter == 1 %}
+                            <th width="65px" rowspan="{{ value.count }}">{{ key }}</th>
+                        {% endif %}
+                        <th>{{ product.name }}{% if product.material %}<br />{{ product.material }}{% endif %}</th>
+                        <td>{{ product.specs|safe }}</td>
+                    </tr>
+                    {% endfor %}
                 {% endfor %}
             </tbody>
         </table>
     </div>
     <div id="content" class="right img_box">
         {% for image in model.images.all %}
-        <a href="{% thumbnail image.image 600x600 crop %}" title="{{ image.name }}"><img src="{% thumbnail image.image 50x50 crop %}" class="img_item" alt="{{ image.name }}"  /></a>
+        <a href="{% thumbnail image.image 600x0 crop sharpen %}" title="{{ image.name }}"><img data-original="{% thumbnail image.image 83x83 crop sharpen %}" src="{% static 'images/83x83.png' %}" class="img_item lazy" alt="{{ image.name }}"  /></a>
         {% endfor %}
     </div>
+    <div class="clearing"></div>
 </div>
 {% endblock %}

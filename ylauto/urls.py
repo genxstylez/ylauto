@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
+from django.views.i18n import set_language
 
 admin.autodiscover()
 
@@ -20,6 +21,7 @@ urlpatterns = patterns('',
 urlpatterns += i18n_patterns('',
     url(r'^home/$', 'ylauto.views.home', name='home'),
     url(r'^about/', 'general.views.about', name='about'),
+    url(r'^contact/', 'general.views.contact', name='contact'),
     url(r'^news/', include('news.urls')),
     url(r'^product/', include('product.urls')),
 )

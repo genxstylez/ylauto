@@ -5,7 +5,7 @@ from easy_thumbnails.fields import ThumbnailerImageField
 
 class News(models.Model):
     def news_image_path(self, filename):
-        return 'news/%s/image.%s' % (self.id, filename.split('.')[1])
+        return 'news/%s/image.%s' % (self.pk, filename.split('.')[1])
 
     class Meta:
         verbose_name_plural = 'News'

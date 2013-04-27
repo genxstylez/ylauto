@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n pagination_tags staticfiles %}
 {% block content %}
     <div id="news_wrapper">
         <h1>{% trans 'NEWS' %}</h1>
         <div class="latest-posts">
+            {% autopaginate news 5 %}
             {% for n in news %}
             <div class="sc-page">
                 <div class="image">
                     <a href="{% url news n.id %}">
-                        <img src="{{ n.image.url }}">
+                        <img class="lazy" data-original="{{ n.image.small.url }}" src="{% static 'images/150x60.png' %}" />
                     </a>
                 </div>
                 <div class="text">
                     <h3><a href="{% url news n.id %}">{{ n.title }}</a></h3>
-                    <p>{{ n.content|safe }}</p>
+                    <p>{{ n.content|safe|truncatechars:130 }}</p>
                 </div><!-- /.text -->
                 <div class="rule"></div>
             </div>
             {% endfor %}
         </div>
+        {% paginate using "pagination.html" %}
         <div class="clearing"></div>
     </div>
 {% endblock %}

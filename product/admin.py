@@ -17,7 +17,8 @@ class CategoryAdmin(TranslationAdmin):
         }
 
 class MakeAdmin(TranslationAdmin):
-     class Media:
+    list_filter = ('category', )
+    class Media:
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js',
@@ -29,7 +30,8 @@ class MakeAdmin(TranslationAdmin):
 
 
 class SeriesAdmin(TranslationAdmin):
-     class Media:
+    list_filter = ('make',)
+    class Media:
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js',
@@ -40,8 +42,11 @@ class SeriesAdmin(TranslationAdmin):
         }
 
 class ProductAdmin(TranslationAdmin):
-     class Media:
+    list_filter = ('model',)
+    class Media:
         js = (
+            '%sgrappelli/tinymce/jscripts/tiny_mce/tiny_mce.js' % settings.STATIC_URL,
+            '%sjs/tinymce_setup.js' % settings.STATIC_URL,
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js',
             'grappelli_modeltranslation/js/tabbed_translation_fields.js',
@@ -57,6 +62,7 @@ class ProductImageInline(admin.TabularInline):
 
 
 class ModelAdmin(TranslationAdmin):
+    list_filter = ('series',)
     inlines = [ ProductImageInline, ]
     class Media:
         js = (

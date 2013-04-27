@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <title>Yuh Lin Auto</title>
         <link id="ait-style" rel="stylesheet" type="text/css" media="all" href="{% static "css/style.css" %}">
         <link rel="stylesheet" id="CSS_anything-css" href="{% static "css/anythingslider.css" %}" type="text/css" media="all">
@@ -23,7 +24,7 @@
             <div id="header" class="clearfix">
                 <div class="logo">
                 <a href="index.html">
-                    <img src="{% static "images/logo.png" %}" alt="logo">
+                    <img src="{% static "images/logo.png" %}" alt="logo" style="width:320px;">
                 </a>
             </div>
         </div>
@@ -54,8 +55,9 @@
             <!-- MAINBAR -->
             <div id="content" class="mainbar right entry-content clearfix">
                 <h1>Welcome to Yuh Lin Auto</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>  
-                <p><a href="contact.html" class="right sc-button golden">CONTACT US</a></p>
+                <h3 style="color:#fff;">DEALERS AND DISTRIBUTORS WANTED</h3>
+                <h6 style="color:#fff; font-size:14px;">Please contact us if you are interested in becoming our dealer or distributor in your region.</h4>
+                <a href="{% url contact %}" class="right sc-button golden" style="margin:0px 18px 10px 0px">CONTACT US</a>
             </div>
             <!-- end of mainbar -->
             <br clear="all">
