@@ -8,3 +8,4 @@ mysql-python
 gunicorn
 python-memcached
 linaro-django-pagination
+django-admin-sortable

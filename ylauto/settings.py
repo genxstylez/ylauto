@@ -106,7 +106,8 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
-    'django.contrib.auth.context_processors.auth'
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.static',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -150,6 +151,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'product',
+    'gallery',
     'news',
     'ylauto',
     'easy_thumbnails',
@@ -157,6 +159,7 @@ INSTALLED_APPS = (
     'general',
     'gunicorn',
     'linaro_django_pagination',
+    'adminsortable',
 )
 
 # A sample logging configuration. The only tangible logging

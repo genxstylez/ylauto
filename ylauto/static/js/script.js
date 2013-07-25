@@ -6,7 +6,7 @@ $j(document).ready(function() {
 	
 	CustomizeMenu();
 	
-	RollUpMenu();
+	//RollUpMenu();
 	
 	ApplyColorbox();
 	
@@ -28,12 +28,13 @@ $j(document).ready(function() {
 
     $j('img.lazy').lazyload({ effect: 'fadeIn' });
 
-        $j('.model-thumb').hover(function() {
-            var on_src = $j('img', this).attr('alt_src');
-            var off_src = $j('img', this).attr('src');
-            $j('img', this).attr('src', on_src);
-            $j('img', this).attr('alt_src', off_src);
-        });
+    $j('.model-thumb').hover(function() {
+        var on_src = $j('img', this).attr('alt_src');
+        var off_src = $j('img', this).attr('src');
+        $j('img', this).attr('src', on_src);
+        $j('img', this).attr('alt_src', off_src);
+    });
+
 });
 
 function iconMenu() {
@@ -167,9 +168,9 @@ function RollUpMenu(){
 
 function ApplyColorbox(){
 	// Apply fancybox on all images
-	$j("a[href$='gif']").colorbox({rel: 'group', maxHeight:"95%"});
-	$j("a[href$='jpg']").colorbox({rel: 'group', maxHeight:"95%"});
-	$j("a[href$='png']").colorbox({rel: 'group', maxHeight:"95%"});
+	$j("a.colorbox[href$='gif']").colorbox({rel: 'group', maxHeight:"95%"});
+	$j("a.colorbox[href$='jpg']").colorbox({rel: 'group', maxHeight:"95%"});
+	$j("a.colorbox[href$='png']").colorbox({rel: 'group', maxHeight:"95%"});
 	
 	$j(".csss").css('display','block');
 }
@@ -382,3 +383,7 @@ function notificationClose() {
 		$j(this).parent().fadeOut('slow');
 	});
 }
+
+$j(window).load(function() {
+    $j('.ps_image_wrapper').width($j('.f_item').width());
+});

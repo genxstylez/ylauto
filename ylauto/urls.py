@@ -23,5 +23,6 @@ urlpatterns += i18n_patterns('',
     url(r'^about/', 'general.views.about', name='about'),
     url(r'^contact/', 'general.views.contact', name='contact'),
     url(r'^news/', include('news.urls')),
+    url(r'^gallery/', include('gallery.urls')),
     url(r'^product/', include('product.urls')),
 )

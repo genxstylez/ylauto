@@ -18,3 +18,4 @@ class News(models.Model):
     image = ThumbnailerImageField(_('image'), upload_to=news_image_path)
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
     last_modified = models.DateTimeField(_('last modified'), auto_now=True)
+

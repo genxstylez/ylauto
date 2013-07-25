@@ -6,14 +6,14 @@
         <a href="{% url index %}">{% trans 'Home' %}</a> / <a href="{% url categories %}">{% trans 'Products' %}</a> / <a href="{% url categories %}#p{{ model.series.make.category.id }}">{{ model.series.make.name }} {{ model.name }}</a>
     </div>
     <div class="sidebar left">
-        <h3>{{ model.name }} <span style="color:#999; font-size: 12px; font-weight: normal;">({{ model.extra }})</span></h3> 
+        <h3>{{ model.name }} <span style="color:#999; font-size: 12px; font-weight: normal;">{{ model.extra }}</span></h3> 
         <p>{{ model.description|safe }}</p>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>{% trans 'Year' %}</th>
-                    <th>{% trans 'Type' %}</th>
-                    <th>{% trans 'Specification' %}</th>
+                    <th style="text-align:center; letter-spacing: 2px;">{% trans 'Year' %}</th>
+                    <th style="text-align:center; letter-spacing: 5px;">{% trans 'Type' %}</th>
+                    <th style="text-align:center; letter-spacing: 5px;">{% trans 'Specification' %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,8 +23,8 @@
                         {% if forloop.counter == 1 %}
                             <th width="65px" rowspan="{{ value.count }}">{{ key }}</th>
                         {% endif %}
-                        <th>{{ product.name }}{% if product.material %}<br />{{ product.material }}{% endif %}</th>
-                        <td>{{ product.specs|safe }}</td>
+                        <th>{{ product.name }}{% if product.material %}<span style="margin-left: 5px; font-size:90%;">{{ product.material }}</span>{% endif %}</th>
+                        <th>{{ product.specs|striptags|safe }}</th>
                     </tr>
                     {% endfor %}
                 {% endfor %}
@@ -33,7 +33,7 @@
     </div>
     <div id="content" class="right img_box">
         {% for image in model.images.all %}
-        <a href="{% thumbnail image.image 600x0 crop sharpen %}" title="{{ image.name }}"><img data-original="{% thumbnail image.image 83x83 crop sharpen %}" src="{% static 'images/83x83.png' %}" class="img_item lazy" alt="{{ image.name }}"  /></a>
+        <a class="colorbox" href="{% thumbnail image.image 600x0 crop sharpen %}" title="{{ image.name }}"><img data-original="{% thumbnail image.image 83x83 crop sharpen %}" src="{% static 'images/83x83.png' %}" class="img_item lazy" alt="{{ image.name }}"  /></a>
         {% endfor %}
     </div>
     <div class="clearing"></div>

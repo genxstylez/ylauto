@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n pagination_tags staticfiles thumbnail %}
+{% block content %}
+    <div id="news_wrapper">
+        <h1>{% trans 'GALLERY' %}</h1>
+        <div class="latest-posts">
+            {% autopaginate galleries 5 %}
+            {% for g in galleries %}
+            <div class="sc-page">
+                <div class="image">
+                    <a href="{% url gallery g.id %}">
+                        <img class="lazy" style="width:auto; height: auto;" data-original="{{ g.cover.url }}" src="{% static 'images/150x60.png' %}" />
+                    </a>
+                </div>
+                <div class="text">
+                    <h3 class="gallery_title"><a href="{% url gallery g.id %}">{{ g.title }}</a></h3>
+                </div><!-- /.text -->
+                <div class="rule"></div>
+            </div>
+            {% endfor %}
+        </div>
+        {% paginate using "pagination.html" %}
+        <div class="clearing"></div>
+    </div>
+{% endblock %}

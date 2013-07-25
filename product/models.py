@@ -42,6 +42,7 @@ class Model(models.Model):
     thumb_off = ThumbnailerImageField(_('thumb off'), upload_to=off_upload_path, resize_source=dict(size=(80, 56), sharpen=True))
     thumb_on = ThumbnailerImageField(_('thumb on'), upload_to=on_upload_path, resize_source=dict(size=(80,56), sharpen=True))
     description = models.TextField(_('description'))
+    order = models.PositiveSmallIntegerField(_('order'), default=1)
 
     def __unicode__(self):
         return self.name
@@ -53,9 +54,13 @@ class Product(models.Model):
     model = models.ForeignKey(Model, verbose_name=_('model'), related_name='products')
     material = models.CharField(_('material'), max_length=50, null=True, blank=True)
     specs = models.TextField(_('specs'), max_length=100)
+    order = models.PositiveIntegerField(default=1, db_index=True)
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        ordering = ['order']
     
 
 class ProductImage(models.Model):

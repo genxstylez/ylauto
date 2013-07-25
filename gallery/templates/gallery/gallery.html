@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n staticfiles thumbnail %}
+{% block content %}
+<div id="news_wrapper">
+    <div class="pathway">
+        <a href="{% url gallery-list %}">{% trans 'Gallery' %}</a> / <a href="{% url gallery gallery.id %}">{{ gallery.title }}</a>
+    </div>
+    <div id="content">
+        <h1>{{ gallery.title }}</h1>
+        <div id="ps_container" class="ps_container">
+            <div class="ps_image_wrapper">
+                <img class="f_item" src="{% thumbnail f_item.image 780x300 sharpen %}" alt="">
+            </div>
+            <!-- Navigation items -->
+            <div class="ps_next"></div>
+            <div class="ps_prev"></div>
+            <!-- Dot list with thumbnail preview -->
+            <ul class="ps_nav">
+                {% for item in items %}
+                {% if forloop.counter == 1 %}
+                <li class="selected">
+                {% else %}
+                <li>
+                {% endif %}
+                    <a href="{% thumbnail item.image 780x300 sharpen %}" rel="{% thumbnail item.image 75x75 crop sharpen %}"></a>
+                </li>
+                {% endfor %}
+                <li class="ps_preview" style="opacity: 0; display: list-item; left: -34px;">
+                    <div class="ps_preview_wrapper">
+                    </div>
+                    <!-- Little triangle -->
+                    <span></span>
+                </li>
+            </ul>
+        </div>
+        <div class="clearing"></div>
+    </div>
+</div>
+{% endblock %}

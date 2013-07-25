@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.conf import settings
 from product.models import Category, Make, Series, Model, Product, ProductImage
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
+from adminsortable.admin import SortableAdmin, SortableTabularInline
 
 class CategoryAdmin(TranslationAdmin):
     class Media:
@@ -41,7 +42,7 @@ class SeriesAdmin(TranslationAdmin):
             'screen': ('grappelli_modeltranslation/css/tabbed_translation_fields.css',)
         }
 
-class ProductAdmin(TranslationAdmin):
+class ProductAdmin(TranslationAdmin, SortableAdmin):
     list_filter = ('model',)
     class Media:
         js = (
@@ -55,6 +56,11 @@ class ProductAdmin(TranslationAdmin):
             'screen': ('grappelli_modeltranslation/css/tabbed_translation_fields.css',)
         }
 
+
+class ProductInline(admin.TabularInline):
+    model = Product
+    extra = 3
+    sortable_field_name = 'order'
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
